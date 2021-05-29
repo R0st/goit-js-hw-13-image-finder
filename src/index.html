@@ -18,26 +18,26 @@
     <!-- <include src="./partials/example.html"></include> -->
     <form class="js-form">
       
-      <input 
-        type="text" 
-        class="js-input" 
-        name="query" 
-        id="" 
-        placeholder="Search image" 
-        autocomplete="off" />
-      <button type="submit" class="btn-search">Search</button>
-
-
-      <div class="js-input-image"></div>
-      
-      <ul class="js-container container js-image"></ul>
-      
-      <button type="button" class="btn-load" data-action="load-more">
-        <span class="spinner" role="status" aria-hidden="true"></span>
-        <span class="label">Показать еще</span>
-      </button>
+      <div class="js-input-image">
+        <label for="searchQuery" class="sr-only">Load more</label>
+        <input 
+          type="text" 
+          class="js-input" 
+          name="query" 
+          id="searchQuery" 
+          placeholder="Search image" 
+          autocomplete="off" />
+      </div>
+      <button type="submit" class="btn-search button">Search</button>
     </form>
     
+    <ul class="js-container container js-image"></ul>
+
+    <button type="button" class="btn-load button" data-action="load-more">
+      <span 
+      class="spinner is-hidden" role="status" aria-hidden="true"></span>
+      <span class="label">Load more</span>
+    </button>
     
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->

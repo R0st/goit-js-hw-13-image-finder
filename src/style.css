@@ -1,6 +1,55 @@
 body {
   background-color: rgb(213, 201, 225);
+  text-align: center;
 }
 li {
   list-style-type: none;
+  display: inline;
+  align-items: baseline;
+
+  /* float: left;
+  margin: 20px; */
+}
+.stats {
+  display: table-row;
+  border: 1px solid green;
+  max-height: auto;
+  /* max-width: 100%; */
+  vertical-align: baseline;
+}
+.photo-card {
+  /* display: block; */
+  float: left;
+  width: 270px;
+  height: 250px;
+  margin: 10px;
+
+  box-sizing: border-box;
+}
+img {
+  display: block;
+  max-width: 250px;
+  max-height: 150px;
+}
+.stats-item {
+  display: inline;
+}
+.stats {
+  padding-top: 10px;
+  /* font-size: 12px; */
+  display: flex;
+  justify-content: space-between;
+}
+.js-form {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.btn-load {
+  margin: 20px 0;
+}
+.js-input {
+  margin: 20px;
+  height: 30px;
 }

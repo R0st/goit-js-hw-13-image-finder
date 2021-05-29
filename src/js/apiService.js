@@ -12,10 +12,13 @@ export default class ApiService {
         return fetch(`${BASE_URL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=
                       ${this.page}&per_page=${PER_PAGE}&key=${API_KEY}`)
             .then(response => response.json())
-            .then(data => {
+            .then(({hits}) => {
                 this.incrementPage();
-                return data.hits;   //вернули промис
-            });
+                return hits;   //вернули промис
+            })
+            .catch(error => {
+            console.log(error);
+        });
     }
     incrementPage() {
         this.page += 1;
