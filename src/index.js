@@ -6,10 +6,10 @@ import LoadMoreBtn from './js/load-more-btn';
 
 // https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=что_искать&page=номер_страницы&per_page=12&key=
 const refs = {
-  searchInput: document.querySelector('.js-form'),
-  imageContainer: document.querySelector('.js-container'),
+  searchInput: document.querySelector('.search-form'),
+  imageContainer: document.querySelector('.js-container-hits'),
   // loadMoreBtn: document.querySelector('[data-action="load-more"]'),
-  element: document.getElementById('.photo-card'),
+  // element: document.getElementById('.photo-card'),
 }
 
 const loadMoreBtn = new LoadMoreBtn({
@@ -19,8 +19,11 @@ const loadMoreBtn = new LoadMoreBtn({
 const apiService = new ApiService();
 
 console.log(loadMoreBtn);
+
+
+
 refs.searchInput.addEventListener('submit', onSearch);
-loadMoreBtn.refs.button.addEventListener('click', onLoadMore);
+loadMoreBtn.refs.button.addEventListener('click', showHiddenBtnLoadMore);
 
 function onSearch(event) {
   event.preventDefault();
@@ -31,17 +34,20 @@ function onSearch(event) {
     return alert('Input correct name');
   }
 
+  loadMoreBtn.show();
   apiService.resetPage();
+  clearHitsMarkup();
+  showHiddenBtnLoadMore();
+  
+}
+
+function showHiddenBtnLoadMore() {
+  loadMoreBtn.disable();
   apiService.fetchHits().then(hits => {
-    clearHitsMarkup();
     appendHitsMarkup(hits);
+    loadMoreBtn.enable();
   });
 }
-
-function onLoadMore() {
-  apiService.fetchHits().then(appendHitsMarkup);
-}
-
 function appendHitsMarkup(hits) {
   refs.imageContainer.insertAdjacentHTML('beforebegin', galleryImagesTmp(hits));
 }

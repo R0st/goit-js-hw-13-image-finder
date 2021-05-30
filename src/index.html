@@ -16,10 +16,10 @@
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <!-- <include src="./partials/example.html"></include> -->
-    <form class="js-form">
+    <form class="search-form">
       
       <div class="js-input-image">
-        <label for="searchQuery" class="sr-only">Load more</label>
+        <label for="searchQuery" class="sr-only"></label>
         <input 
           type="text" 
           class="js-input" 
@@ -31,7 +31,7 @@
       <button type="submit" class="btn-search button">Search</button>
     </form>
     
-    <ul class="js-container container js-image"></ul>
+    <ul class="hits js-container-hits"></ul>
 
     <button type="button" class="btn-load button" data-action="load-more">
       <span 
