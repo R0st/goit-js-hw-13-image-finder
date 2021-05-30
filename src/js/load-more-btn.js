@@ -9,6 +9,7 @@ export default class LoadMoreBtn {
         refs.button = document.querySelector(selector);
         refs.label = refs.button.querySelector('.label');
         refs.spinner = refs.button.querySelector('.spinner');
+        // refs.element = document.querySelector('.btn-load');
 
         return refs;
     }
@@ -28,4 +29,10 @@ export default class LoadMoreBtn {
     hide() {
         this.refs.button.classList.add('is-hidden');
     }
+    scrollEl() {
+            this.refs.button.scrollIntoView({
+                behavior: 'smooth',
+                block: 'end',
+            });
+}
 }

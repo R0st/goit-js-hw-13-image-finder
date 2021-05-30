@@ -7,6 +7,7 @@ import LoadMoreBtn from './js/load-more-btn';
 const refs = {
   searchInput: document.querySelector('.search-form'),
   imageContainer: document.querySelector('.js-container-hits'),
+  // elementScroll: document.querySelector('.btn-load'),
 }
 
 const loadMoreBtn = new LoadMoreBtn({
@@ -38,6 +39,7 @@ function showHiddenBtnLoadMore() {
   apiService.fetchHits().then(hits => {
     appendHitsMarkup(hits);
     loadMoreBtn.enable();
+    loadMoreBtn.scrollEl();
   });
 }
 
@@ -48,10 +50,5 @@ function appendHitsMarkup(hits) {
 function clearHitsMarkup() {
   refs.imageContainer.innerHTML = '';
 }
-
-// refs.element.scrollIntoView({
-//   behavior: 'smooth',
-//   block: 'end',
-// });
 
 
